@@ -89,7 +89,7 @@ const supabase = {
       try {
         const res = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
           method: "POST",
-          headers: { "apikey": SUPABASE_ANON_KEY, "Content-Type": "application/json" },
+          
           body: JSON.stringify({ email, password }),
         });
         const j = await res.json();
@@ -105,7 +105,7 @@ const supabase = {
       try {
         const res = await fetch(`${SUPABASE_URL}/auth/v1/signup`, {
           method: "POST",
-          headers: { "apikey": SUPABASE_ANON_KEY, "Content-Type": "application/json" },
+          headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}`, "Content-Type": "application/json" },
           body: JSON.stringify({ email, password }),
         });
         const j = await res.json();
